@@ -33,7 +33,7 @@ const Footer: FunctionComponent<Props> = ({ className = "" }) => {
           {socialMediaIcons.map((socialMediaIcon) => (
             <li key={socialMediaIcon.name}>
               <a
-                className="flex h-32 w-32 items-center justify-center rounded-full border border-gray text-blue"
+                className="flex h-32 w-32 items-center justify-center rounded-full text-blue shadow-social focus-visible:shadow-social-focus focus-visible:outline-none motion-safe:transition-social hover-device:hover:bg-blue hover-device:hover:text-white hover-device:hover:shadow-none"
                 href="#"
               >
                 <svg
@@ -50,7 +50,9 @@ const Footer: FunctionComponent<Props> = ({ className = "" }) => {
           ))}
         </ul>
       </nav>
-      <p className="text-body-sm">© Copyright Ping. All rights reserved.</p>
+      <p className="text-body-sm lg:text-body-md">
+        © Copyright Ping. All rights reserved.
+      </p>
     </footer>
   );
 };

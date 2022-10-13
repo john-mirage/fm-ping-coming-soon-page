@@ -46,10 +46,16 @@ module.exports = {
       "76": "4.75rem",
       "80": "5rem",
       "84": "5.25rem",
+      "86": "5.375rem",
       "88": "5.5rem",
       "92": "5.75rem",
       "96": "6rem",
       "128": "8rem",
+      "200": "12.5rem",
+    },
+    maxWidth: {
+      "none": "none",
+      "280": "17.5rem",
     },
     fontWeight: {
       "700": "700",
@@ -65,7 +71,7 @@ module.exports = {
         letterSpacing: "0",
         fontWeight: "300",
       }],
-      "label-lg": [theme("spacing[20]"), {
+      "label-lg": [theme("spacing[16]"), {
         lineHeight: theme("spacing[24]"),
         letterSpacing: "0",
         fontWeight: "600",
@@ -102,8 +108,19 @@ module.exports = {
       }],
     }),
     extend: {
+      minHeight: {
+        "40": "2.5rem",
+        "56": "3.5rem",
+      },
+      boxShadow: ({ theme }) => ({
+        "social": `0 0 0 0.0625rem ${theme("colors[pale-blue]")}`,
+        "social-focus": `0 0 0 0.25rem ${theme("colors[pale-blue]")}`,
+      }),
       fontFamily: {
         sans: ["Libre Franklin", ...defaultTheme.fontFamily.sans],
+      },
+      transitionProperty: {
+        "social": "color, background-color, box-shadow",
       },
     },
   },

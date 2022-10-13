@@ -11,11 +11,18 @@ const Header: FunctionComponent<Props> = ({ className = "" }) => {
     <header
       className={clsx(className, "flex flex-col items-center text-center")}
     >
-      <img className="mb-40" src={logo} alt="company logo" aria-hidden="true" />
-      <h1 className="mb-16 text-display-md text-very-dark-blue">
+      <img
+        className="mb-40 w-56 lg:w-86"
+        src={logo}
+        alt="company logo"
+        aria-hidden="true"
+      />
+      <h1 className="mb-16 text-display-md text-very-dark-blue lg:text-display-lg">
         We are launching <span className="font-700">soon!</span>
       </h1>
-      <p className="text-body-md text-gray">Subscribe and get notified</p>
+      <p className="text-body-md text-gray lg:text-body-xl">
+        Subscribe and get notified
+      </p>
     </header>
   );
 };
