@@ -8,7 +8,9 @@ interface Props {
 
 const Header: FunctionComponent<Props> = ({ className = "" }) => {
   return (
-    <header className={clsx(className, "flex flex-col items-center")}>
+    <header
+      className={clsx(className, "flex flex-col items-center text-center")}
+    >
       <img className="mb-40" src={logo} alt="company logo" aria-hidden="true" />
       <h1 className="mb-16 text-display-md text-very-dark-blue">
         We are launching <span className="font-700">soon!</span>

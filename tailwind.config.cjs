@@ -5,12 +5,7 @@ module.exports = {
   content: ["./index.html", "./src/**/*.{js,ts,jsx,tsx}"],
   theme: {
     screens: {
-      "xs": "375px",
-      "sm": "576px",
-      "md": "768px",
-      "lg": "992px",
-      "xl": "1200px",
-      "2xl": "1400px",
+      "lg": "688px",
       "hover-device": { "raw": "(hover: hover)" },
     },
     colors: {

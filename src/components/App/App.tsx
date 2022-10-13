@@ -6,7 +6,7 @@ import { FunctionComponent } from "react";
 
 const App: FunctionComponent = () => {
   return (
-    <div className="flex min-h-screen flex-col items-center justify-start px-24 pt-84 pb-36">
+    <div className="container mx-auto flex min-h-screen flex-col items-center justify-start px-24 pt-84 pb-36">
       <Header className="mb-32" />
       <main className="mb-32">
         <Form className="mb-72" />
