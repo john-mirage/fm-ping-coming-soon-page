@@ -33,6 +33,7 @@ module.exports = {
       "14": "0.875rem",
       "16": "1rem",
       "20": "1.25rem",
+      "22": "1.375rem",
       "24": "1.5rem",
       "28": "1.75rem",
       "32": "2rem",
@@ -54,16 +55,54 @@ module.exports = {
       "96": "6rem",
       "128": "8rem",
     },
+    fontWeight: {
+      "700": "700",
+    },
     fontSize: ({ theme }) => ({
-      "heading": [theme("spacing[24]"), {
-        lineHeight: theme("spacing[32]"),
+      "display-lg": [theme("spacing[48]"), {
+        lineHeight: theme("spacing[64]"),
         letterSpacing: "0",
-        fontWeight: "700",
+        fontWeight: "300",
       }],
-      "body": [theme("spacing[16]"), {
+      "display-md": [theme("spacing[22]"), {
+        lineHeight: theme("spacing[28]"),
+        letterSpacing: "0",
+        fontWeight: "300",
+      }],
+      "label-lg": [theme("spacing[20]"), {
         lineHeight: theme("spacing[24]"),
         letterSpacing: "0",
-        fontWeight: "400",
+        fontWeight: "600",
+      }],
+      "label-md": [theme("spacing[12]"), {
+        lineHeight: theme("spacing[16]"),
+        letterSpacing: "0",
+        fontWeight: "600",
+      }],
+      "label-sm": [theme("spacing[10]"), {
+        lineHeight: theme("spacing[14]"),
+        letterSpacing: "0",
+        fontWeight: "600",
+      }],
+      "body-xl": [theme("spacing[20]"), {
+        lineHeight: theme("spacing[24]"),
+        letterSpacing: "0",
+        fontWeight: "300",
+      }],
+      "body-lg": [theme("spacing[16]"), {
+        lineHeight: theme("spacing[24]"),
+        letterSpacing: "0",
+        fontWeight: "300",
+      }],
+      "body-md": [theme("spacing[12]"), {
+        lineHeight: theme("spacing[16]"),
+        letterSpacing: "0",
+        fontWeight: "300",
+      }],
+      "body-sm": [theme("spacing[10]"), {
+        lineHeight: theme("spacing[14]"),
+        letterSpacing: "0",
+        fontWeight: "300",
       }],
     }),
     extend: {
