@@ -1,0 +1,10 @@
+{
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "plugins": ["@typescript-eslint", "prettier"],
+  "root": true,
+  "ignorePatterns": ["postcss.config.cjs", "tailwind.config.cjs"],
+  "rules": {
+    "prettier/prettier": ["error"]
+  }
+}
