@@ -5,7 +5,6 @@ import react from "@vitejs/plugin-react";
 import { resolve } from "path";
 
 export default defineConfig({
-  base: "/repository-name/",
   plugins: [react()],
   resolve: {
     alias: {
