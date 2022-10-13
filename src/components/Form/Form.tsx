@@ -1,7 +1,12 @@
 import { FunctionComponent } from "react";
+import { clsx } from "clsx";
 
-const Form: FunctionComponent = () => {
-  return <form></form>;
+interface Props {
+  className?: string;
+}
+
+const Form: FunctionComponent<Props> = ({ className = "" }) => {
+  return <form className={clsx(className)}></form>;
 };
 
 export default Form;

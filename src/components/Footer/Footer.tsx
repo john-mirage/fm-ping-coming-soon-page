@@ -1,7 +1,12 @@
 import { FunctionComponent } from "react";
+import { clsx } from "clsx";
 
-const Footer: FunctionComponent = () => {
-  return <footer></footer>;
+interface Props {
+  className?: string;
+}
+
+const Footer: FunctionComponent<Props> = ({ className = "" }) => {
+  return <footer className={clsx(className)}>Test</footer>;
 };
 
 export default Footer;
