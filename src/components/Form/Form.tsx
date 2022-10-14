@@ -14,7 +14,10 @@ interface FormData {
 
 const schema = yup
   .object({
-    email: yup.string().required().email(),
+    email: yup
+      .string()
+      .required("Whoops! It looks like you forgot to add your email")
+      .email("Please provide a valid email address"),
   })
   .required();
 
@@ -43,9 +46,11 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
           placeholder="Your email address..."
           {...register("email")}
         />
-        <p className="text-label-sm italic text-light-red lg:text-label-md">
-          {errors.email?.message}
-        </p>
+        {errors.email && (
+          <p className="mt-6 text-center text-label-sm italic text-light-red lg:mt-8 lg:pl-32 lg:text-left lg:text-label-md">
+            {errors.email.message}
+          </p>
+        )}
       </div>
       <button
         className="min-h-40 w-full rounded-full bg-blue text-label-md text-white focus-within:outline-none focus-visible:shadow-social-focus motion-safe:transition-shadow lg:min-h-56 lg:w-200 lg:flex-none lg:text-label-lg"
