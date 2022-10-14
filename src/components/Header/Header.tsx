@@ -16,6 +16,7 @@ const Header: FunctionComponent<Props> = ({ className = "" }) => {
         src={logo}
         alt="company logo"
         aria-hidden="true"
+        draggable="false"
       />
       <h1 className="mb-16 text-display-md text-very-dark-blue lg:text-display-lg">
         We are launching <span className="font-700">soon!</span>
