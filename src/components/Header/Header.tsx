@@ -12,13 +12,13 @@ const Header: FunctionComponent<Props> = ({ className = "" }) => {
       className={clsx(className, "flex flex-col items-center text-center")}
     >
       <img
-        className="mb-40 w-56 lg:w-86"
+        className="mb-40 w-56 lg:mb-48 lg:w-86"
         src={logo}
         alt="company logo"
         aria-hidden="true"
         draggable="false"
       />
-      <h1 className="mb-16 text-display-md text-gray lg:text-display-lg">
+      <h1 className="mb-16 text-display-md text-gray lg:mb-14 lg:text-display-lg">
         We are launching{" "}
         <span className="font-700 text-very-dark-blue">soon!</span>
       </h1>

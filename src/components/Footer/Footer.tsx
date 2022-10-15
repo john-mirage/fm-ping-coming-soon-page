@@ -29,11 +29,11 @@ const Footer: FunctionComponent<Props> = ({ className = "" }) => {
       className={clsx(className, "flex flex-col items-center text-center")}
     >
       <nav className="mb-24">
-        <ul className="flex flex-row items-center space-x-12">
+        <ul className="flex flex-row items-center space-x-14">
           {socialMediaIcons.map((socialMediaIcon) => (
             <li key={socialMediaIcon.name}>
               <a
-                className="flex h-32 w-32 items-center justify-center rounded-full text-blue ring-1 ring-pale-blue focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue motion-safe:transition-social hover-device:hover:bg-blue hover-device:hover:text-white hover-device:hover:ring-0"
+                className="flex h-32 w-32 items-center justify-center rounded-full text-blue ring-1 ring-pale-blue focus-visible:outline-2 focus-visible:outline-offset-6 focus-visible:outline-blue motion-safe:transition-social hover-device:hover:bg-blue hover-device:hover:text-white hover-device:hover:ring-0"
                 href="#"
               >
                 <svg

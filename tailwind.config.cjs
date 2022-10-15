@@ -118,6 +118,9 @@ module.exports = {
       transitionProperty: {
         "social": "color, background-color, box-shadow",
       },
+      outlineOffset: {
+        "6": "0.375rem",
+      },
     },
   },
   corePlugins: {
