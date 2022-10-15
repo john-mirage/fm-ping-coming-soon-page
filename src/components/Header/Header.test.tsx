@@ -3,7 +3,7 @@ import { render, screen } from "@utils/test-utils";
 import Header from "./Header";
 import logo from "@images/logo.svg";
 
-describe("Card component", () => {
+describe("Header component", () => {
   it("should display the header logo", () => {
     render(<Header />);
     const image = screen.getByAltText(/company logo/i);
