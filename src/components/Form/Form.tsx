@@ -40,11 +40,15 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
       onSubmit={handleSubmit(onSubmit)}
     >
       <div className="mb-10 lg:mb-0 lg:mr-16 lg:flex-1">
+        <label className="sr-only" htmlFor="email-address">
+          Email address
+        </label>
         <input
           className={clsx(
             "h-40 w-full rounded-full border px-32 text-body-md text-very-dark-blue placeholder:text-gray focus-visible:outline-2 focus-visible:outline-offset-6 focus-visible:outline-blue lg:h-56 lg:text-body-lg",
             errors.email ? "border-light-red" : "border-pale-blue"
           )}
+          id="email-address"
           type="text"
           placeholder="Your email address..."
           {...register("email")}
