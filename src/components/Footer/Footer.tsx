@@ -33,7 +33,7 @@ const Footer: FunctionComponent<Props> = ({ className = "" }) => {
           {socialMediaIcons.map((socialMediaIcon) => (
             <li key={socialMediaIcon.name}>
               <a
-                className="flex h-32 w-32 items-center justify-center rounded-full text-blue shadow-social focus-visible:shadow-social-focus focus-visible:outline-none motion-safe:transition-social hover-device:hover:bg-blue hover-device:hover:text-white hover-device:hover:shadow-none"
+                className="flex h-32 w-32 items-center justify-center rounded-full text-blue ring-1 ring-pale-blue focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue motion-safe:transition-social hover-device:hover:bg-blue hover-device:hover:text-white hover-device:hover:ring-0"
                 href="#"
               >
                 <svg

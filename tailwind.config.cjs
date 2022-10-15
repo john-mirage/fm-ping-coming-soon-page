@@ -112,10 +112,6 @@ module.exports = {
         "40": "2.5rem",
         "56": "3.5rem",
       },
-      boxShadow: ({ theme }) => ({
-        "social": `0 0 0 0.0625rem ${theme("colors[pale-blue]")}`,
-        "social-focus": `0 0 0 0.25rem ${theme("colors[pale-blue]")}`,
-      }),
       fontFamily: {
         sans: ["Libre Franklin", ...defaultTheme.fontFamily.sans],
       },
@@ -129,6 +125,5 @@ module.exports = {
   },
   plugins: [
     require("@tailwindcss/aspect-ratio"),
-    require("@tailwindcss/forms"),
   ],
 };

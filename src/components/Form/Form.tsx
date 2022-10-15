@@ -41,7 +41,10 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
     >
       <div className="mb-10 lg:mb-0 lg:mr-16 lg:flex-1">
         <input
-          className="h-40 w-full rounded-full border-pale-blue px-32 text-body-md text-very-dark-blue placeholder:text-gray focus-visible:border-blue focus-visible:ring-0 lg:h-56 lg:text-body-lg"
+          className={clsx(
+            "h-40 w-full rounded-full border px-32 text-body-md text-very-dark-blue placeholder:text-gray focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue lg:h-56 lg:text-body-lg",
+            errors.email ? "border-light-red" : "border-pale-blue"
+          )}
           type="text"
           placeholder="Your email address..."
           {...register("email")}
@@ -53,7 +56,7 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
         )}
       </div>
       <button
-        className="min-h-40 w-full rounded-full bg-blue text-label-md text-white focus-within:outline-none focus-visible:shadow-social-focus motion-safe:transition-shadow lg:min-h-56 lg:w-200 lg:flex-none lg:text-label-lg"
+        className="min-h-40 w-full rounded-full border border-blue bg-blue text-label-md text-white shadow-lg shadow-blue/40 focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-blue motion-safe:transition-opacity lg:min-h-56 lg:w-200 lg:flex-none lg:text-label-lg hover-device:hover:opacity-75"
         type="submit"
       >
         Notify Me
