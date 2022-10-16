@@ -32,8 +32,8 @@ const Image: FunctionComponent = () => {
           }
         )}
         src={dashboardIllustration}
-        alt="dashboard illustration"
         draggable="false"
+        aria-hidden="true"
       />
     </div>
   );
