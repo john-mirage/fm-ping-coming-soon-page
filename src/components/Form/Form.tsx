@@ -49,7 +49,7 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
             errors.email ? "border-light-red" : "border-pale-blue"
           )}
           id="email-address"
-          type="email"
+          type="text"
           placeholder="Your email address..."
           aria-invalid={errors.email ? "true" : "false"}
           {...register("email")}
