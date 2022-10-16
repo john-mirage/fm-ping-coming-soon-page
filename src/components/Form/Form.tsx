@@ -39,7 +39,7 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
       )}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="mb-10 lg:mb-0 lg:mr-16 lg:flex-1">
+      <div className="mb-16 lg:mb-0 lg:mr-16 lg:flex-1">
         <label className="sr-only" htmlFor="email-address">
           Email address
         </label>
