@@ -37,7 +37,7 @@ const Footer: FunctionComponent<Props> = ({ className = "" }) => {
         </ul>
       </nav>
       <p className="text-body-sm lg:text-body-md">
-        © Copyright Ping. All rights reserved.
+        <span aria-hidden="true">©</span> Copyright Ping. All rights reserved.
       </p>
     </footer>
   );
