@@ -22,7 +22,8 @@ const schema = yup
   .required();
 
 const Form: FunctionComponent<Props> = ({ className = "" }) => {
-  const [registeredEmail, setRegisteredEmail] = useState("");
+  const [hasBeenSuccessfullySubmitted, setHasBeenSuccessfullySubmitted] =
+    useState<boolean>(false);
 
   const {
     register,
@@ -34,11 +35,11 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
   });
 
   const onInput = () => {
-    if (registeredEmail.length > 0) setRegisteredEmail("");
+    if (hasBeenSuccessfullySubmitted) setHasBeenSuccessfullySubmitted(false);
   };
 
-  const onSubmit = (data: FormData) => {
-    setRegisteredEmail(data.email);
+  const onSubmit = () => {
+    setHasBeenSuccessfullySubmitted(true);
   };
 
   useEffect(() => {
@@ -77,7 +78,7 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
             {errors.email.message}
           </p>
         )}
-        {registeredEmail.length > 0 && (
+        {hasBeenSuccessfullySubmitted && (
           <p
             className="mt-6 text-center text-label-sm italic text-blue lg:mt-8 lg:pl-32 lg:text-left lg:text-label-md"
             role="alert"
