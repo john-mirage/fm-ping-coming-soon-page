@@ -16,11 +16,11 @@ const Header: FunctionComponent<Props> = ({ className = "" }) => {
       >
         <use href="#logo" />
       </svg>
-      <h1 className="mb-16 text-display-md text-gray lg:mb-14 lg:text-display-lg">
+      <h1 className="mb-16 text-display-md text-gray contrast-more:text-very-dark-blue lg:mb-14 lg:text-display-lg">
         We are launching{" "}
         <span className="font-700 text-very-dark-blue">soon!</span>
       </h1>
-      <p className="text-body-md text-very-dark-blue lg:text-body-xl">
+      <p className="text-body-md text-very-dark-blue print:hidden lg:text-body-xl">
         Subscribe and get notified
       </p>
     </header>

@@ -19,6 +19,15 @@ describe("Footer component", () => {
     expect(container.querySelector('use[href="#icon-facebook"]')).toBeTruthy();
     expect(container.querySelector('use[href="#icon-twitter"]')).toBeTruthy();
     expect(container.querySelector('use[href="#icon-instagram"]')).toBeTruthy();
+    expect(
+      screen.getByText(/https:\/\/facebook.com\/ping\//i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/https:\/\/twitter.com\/ping\//i)
+    ).toBeInTheDocument();
+    expect(
+      screen.getByText(/https:\/\/instagram.com\/ping\//i)
+    ).toBeInTheDocument();
   });
 
   it("should display the footer copyright", () => {
