@@ -10,7 +10,10 @@ const Header: FunctionComponent<Props> = ({ className = "" }) => {
     <header
       className={clsx(className, "flex flex-col items-center text-center")}
     >
-      <svg className="mb-40 h-16 w-56 lg:mb-48 lg:h-24 lg:w-86">
+      <svg
+        className="mb-40 h-16 w-56 lg:mb-48 lg:h-24 lg:w-86"
+        aria-hidden="true"
+      >
         <use href="#logo" />
       </svg>
       <h1 className="mb-16 text-display-md text-gray lg:mb-14 lg:text-display-lg">

@@ -1,17 +1,8 @@
 import { describe, expect, it } from "vitest";
 import { render, screen } from "@utils/test-utils";
 import Header from "./Header";
-import logo from "@images/logo.svg";
 
 describe("Header component", () => {
-  it("should display the header logo", () => {
-    render(<Header />);
-    const image = screen.getByAltText(/company logo/i);
-    expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute("src", logo);
-    expect(image).toHaveAttribute("aria-hidden", "true");
-  });
-
   it("should display the header title", () => {
     render(<Header />);
     const h1 = screen.getByText(/We are launching/i, { selector: "h1" });
