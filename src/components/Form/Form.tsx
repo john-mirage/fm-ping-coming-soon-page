@@ -1,4 +1,4 @@
-import { FunctionComponent } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -22,14 +22,28 @@ const schema = yup
   .required();
 
 const Form: FunctionComponent<Props> = ({ className = "" }) => {
+  const [registeredEmail, setRegisteredEmail] = useState("");
+
   const {
     register,
+    reset,
     handleSubmit,
-    formState: { errors },
+    formState: { errors, isSubmitSuccessful },
   } = useForm<FormData>({
     resolver: yupResolver(schema),
   });
-  const onSubmit = (data: FormData) => console.log(data);
+
+  const onInput = () => {
+    if (registeredEmail.length > 0) setRegisteredEmail("");
+  };
+
+  const onSubmit = (data: FormData) => {
+    setRegisteredEmail(data.email);
+  };
+
+  useEffect(() => {
+    reset();
+  }, [isSubmitSuccessful]);
 
   return (
     <form
@@ -53,6 +67,7 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
           placeholder="Your email address..."
           aria-invalid={errors.email ? "true" : "false"}
           {...register("email")}
+          onInput={onInput}
         />
         {errors.email && (
           <p
@@ -60,6 +75,14 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
             role="alert"
           >
             {errors.email.message}
+          </p>
+        )}
+        {registeredEmail.length > 0 && (
+          <p
+            className="mt-6 text-center text-label-sm italic text-blue lg:mt-8 lg:pl-32 lg:text-left lg:text-label-md"
+            role="alert"
+          >
+            Your email address has been added to the notification list.
           </p>
         )}
       </div>
