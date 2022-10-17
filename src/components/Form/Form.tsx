@@ -1,10 +1,10 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { FunctionComponent, useEffect } from "react";
 import { clsx } from "clsx";
-import { useForm } from "react-hook-form";
+import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
-import Message from "@components/Message";
 import Button from "@components/Button";
+import Input from "@components/Input";
 
 interface Props {
   className?: string;
@@ -24,11 +24,8 @@ const schema = yup
   .required();
 
 const Form: FunctionComponent<Props> = ({ className = "" }) => {
-  const [hasBeenSuccessfullySubmitted, setHasBeenSuccessfullySubmitted] =
-    useState<boolean>(false);
-
   const {
-    register,
+    control,
     reset,
     handleSubmit,
     formState: { errors, isSubmitSuccessful },
@@ -36,12 +33,8 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
     resolver: yupResolver(schema),
   });
 
-  const onInput = () => {
-    if (hasBeenSuccessfullySubmitted) setHasBeenSuccessfullySubmitted(false);
-  };
-
-  const onSubmit = () => {
-    setHasBeenSuccessfullySubmitted(true);
+  const onSubmit = (formData: FormData) => {
+    console.log(formData.email);
   };
 
   useEffect(() => {
@@ -56,29 +49,24 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
       )}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <div className="mb-16 lg:mb-0 lg:mr-16 lg:flex-1">
-        <label className="sr-only" htmlFor="email-address">
-          Email address
-        </label>
-        <input
-          className={clsx(
-            "h-40 w-full rounded-full border px-32 text-body-md text-very-dark-blue placeholder:text-gray focus-visible:outline-2 focus-visible:outline-offset-6 focus-visible:outline-blue lg:h-56 lg:text-body-lg",
-            errors.email ? "border-light-red" : "border-pale-blue"
-          )}
-          id="email-address"
-          type="text"
-          placeholder="Your email address..."
-          aria-invalid={errors.email ? "true" : "false"}
-          {...register("email")}
-          onInput={onInput}
-        />
-        {errors.email && <Message color="red">{errors.email.message}</Message>}
-        {hasBeenSuccessfullySubmitted && (
-          <Message color="blue">
-            Your email address has been added to the notification list.
-          </Message>
+      <Controller
+        name="email"
+        control={control}
+        defaultValue=""
+        render={({ field: { onChange, onBlur, value, name, ref } }) => (
+          <Input
+            name={name}
+            value={value}
+            id="email"
+            type="text"
+            placeholder="Your email address..."
+            error={errors.email?.message ? errors.email.message : ""}
+            onChange={onChange}
+            onBlur={onBlur}
+            ref={ref}
+          />
         )}
-      </div>
+      />
       <Button type="submit">Notify Me</Button>
     </form>
   );
