@@ -3,6 +3,8 @@ import { clsx } from "clsx";
 import { useForm } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
+import Message from "@components/Message";
+import Button from "@components/Button";
 
 interface Props {
   className?: string;
@@ -70,29 +72,14 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
           {...register("email")}
           onInput={onInput}
         />
-        {errors.email && (
-          <p
-            className="mt-6 text-center text-label-sm italic text-light-red lg:mt-8 lg:pl-32 lg:text-left lg:text-label-md"
-            role="alert"
-          >
-            {errors.email.message}
-          </p>
-        )}
+        {errors.email && <Message color="red">{errors.email.message}</Message>}
         {hasBeenSuccessfullySubmitted && (
-          <p
-            className="mt-6 text-center text-label-sm italic text-blue lg:mt-8 lg:pl-32 lg:text-left lg:text-label-md"
-            role="alert"
-          >
+          <Message color="blue">
             Your email address has been added to the notification list.
-          </p>
+          </Message>
         )}
       </div>
-      <button
-        className="min-h-40 w-full rounded-full border border-blue bg-blue text-label-md text-white shadow-lg shadow-blue/40 focus-visible:outline-2 focus-visible:outline-offset-6 focus-visible:outline-blue motion-safe:transition-opacity lg:min-h-56 lg:w-200 lg:flex-none lg:text-label-lg hover-device:hover:opacity-75"
-        type="submit"
-      >
-        Notify Me
-      </button>
+      <Button type="submit">Notify Me</Button>
     </form>
   );
 };

@@ -1,13 +1,18 @@
+import Form from "@components/Form";
+import Illustration from "@components/Illustration";
 import { FunctionComponent } from "react";
 import { clsx } from "clsx";
+import dashboardIllustration from "@images/illustration-dashboard.png";
 
 interface Props {
   className?: string;
 }
 
-const Hero: FunctionComponent<Props> = ({ className = "" }) => {
+const Main: FunctionComponent<Props> = ({ className = "" }) => {
   return (
-    <div className={clsx(className, "flex flex-col items-center text-center")}>
+    <main
+      className={clsx(className, "mb-32 flex w-full flex-col items-center")}
+    >
       <h2 className="mb-16 text-display-md text-gray contrast-more:text-very-dark-blue lg:mb-14 lg:text-display-lg">
         We are launching{" "}
         <span className="font-700 text-very-dark-blue">soon!</span>
@@ -15,8 +20,10 @@ const Hero: FunctionComponent<Props> = ({ className = "" }) => {
       <p className="text-body-md text-very-dark-blue print:hidden lg:text-body-xl">
         Subscribe and get notified
       </p>
-    </div>
+      <Form className="mx-auto mb-72 w-full max-w-280 lg:mb-92 lg:max-w-none" />
+      <Illustration src={dashboardIllustration} />
+    </main>
   );
 };
 
-export default Hero;
+export default Main;

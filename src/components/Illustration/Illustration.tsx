@@ -1,8 +1,11 @@
 import { FunctionComponent, useEffect, useRef, useState } from "react";
-import dashboardIllustration from "@images/illustration-dashboard.png";
 import { clsx } from "clsx";
 
-const Image: FunctionComponent = () => {
+interface Props {
+  src: string;
+}
+
+const Illustration: FunctionComponent<Props> = ({ src }) => {
   const [visible, setVisible] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
 
@@ -31,7 +34,7 @@ const Image: FunctionComponent = () => {
             "opacity-0": !visible,
           }
         )}
-        src={dashboardIllustration}
+        src={src}
         draggable="false"
         aria-hidden="true"
       />
@@ -39,4 +42,4 @@ const Image: FunctionComponent = () => {
   );
 };
 
-export default Image;
+export default Illustration;
