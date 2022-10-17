@@ -1,10 +1,11 @@
-import { FunctionComponent, useEffect } from "react";
+import { FunctionComponent, useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
 import * as yup from "yup";
 import Button from "@components/Button";
 import Input from "@components/Input";
+import Message from "@components/Message";
 
 interface Props {
   className?: string;
@@ -24,18 +25,29 @@ const schema = yup
   .required();
 
 const Form: FunctionComponent<Props> = ({ className = "" }) => {
+  const [successMessage, setSuccessMessage] = useState<string>("");
+
   const {
     control,
     reset,
     handleSubmit,
-    formState: { errors, isSubmitSuccessful },
+    formState: { errors, isDirty, isSubmitSuccessful },
   } = useForm<FormData>({
+    defaultValues: {
+      email: "",
+    },
     resolver: yupResolver(schema),
   });
 
   const onSubmit = (formData: FormData) => {
-    console.log(formData.email);
+    setSuccessMessage(
+      `${formData.email} has been successfully added to the notification list.`
+    );
   };
+
+  useEffect(() => {
+    if (isDirty && successMessage.length > 0) setSuccessMessage("");
+  }, [isDirty]);
 
   useEffect(() => {
     reset();
@@ -52,7 +64,6 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
       <Controller
         name="email"
         control={control}
-        defaultValue=""
         render={({ field: { onChange, onBlur, value, name, ref } }) => (
           <Input
             name={name}
@@ -68,6 +79,9 @@ const Form: FunctionComponent<Props> = ({ className = "" }) => {
         )}
       />
       <Button type="submit">Notify Me</Button>
+      {successMessage.length > 0 && (
+        <Message color="blue">{successMessage}</Message>
+      )}
     </form>
   );
 };
