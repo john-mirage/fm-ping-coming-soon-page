@@ -1,11 +1,11 @@
-import { FunctionComponent, useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { clsx } from "clsx";
 
 interface Props {
   src: string;
 }
 
-const Illustration: FunctionComponent<Props> = ({ src }) => {
+const Illustration = ({ src }: Props) => {
   const [visible, setVisible] = useState(false);
   const imageRef = useRef<HTMLImageElement>(null);
 

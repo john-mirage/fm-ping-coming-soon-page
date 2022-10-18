@@ -1,14 +1,12 @@
-import { FunctionComponent, PropsWithChildren } from "react";
+import { ReactNode } from "react";
 import { clsx } from "clsx";
 
 interface Props {
+  children: ReactNode;
   color?: string;
 }
 
-const Message: FunctionComponent<PropsWithChildren<Props>> = ({
-  children,
-  color = "red",
-}) => {
+const Message = ({ children, color = "red" }: Props) => {
   return (
     <p
       className={clsx(

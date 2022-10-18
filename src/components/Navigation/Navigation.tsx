@@ -1,8 +1,6 @@
-import { FunctionComponent } from "react";
-
 const socialMedias = ["facebook", "twitter", "instagram"];
 
-const Navigation: FunctionComponent = () => {
+const Navigation = () => {
   return (
     <nav className="mb-24">
       <ul className="flex flex-row items-center space-x-14">

@@ -1,6 +1,5 @@
 import Form from "@components/Form";
 import Illustration from "@components/Illustration";
-import { FunctionComponent } from "react";
 import { clsx } from "clsx";
 import dashboardIllustration from "@images/illustration-dashboard.png";
 
@@ -8,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-const Main: FunctionComponent<Props> = ({ className = "" }) => {
+const Main = ({ className = "" }: Props) => {
   return (
     <main
       className={clsx(className, "mb-32 flex w-full flex-col items-center")}

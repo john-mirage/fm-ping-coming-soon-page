@@ -1,4 +1,4 @@
-import { FunctionComponent, useEffect, useState } from "react";
+import { useEffect, useState } from "react";
 import { clsx } from "clsx";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -24,7 +24,7 @@ const schema = yup
   })
   .required();
 
-const Form: FunctionComponent<Props> = ({ className = "" }) => {
+const Form = ({ className = "" }: Props) => {
   const [successMessage, setSuccessMessage] = useState<string>("");
 
   const {

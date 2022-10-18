@@ -1,11 +1,10 @@
-import { FunctionComponent } from "react";
 import { clsx } from "clsx";
 
 interface Props {
   className?: string;
 }
 
-const Header: FunctionComponent<Props> = ({ className = "" }) => {
+const Header = ({ className = "" }: Props) => {
   return (
     <header className={clsx(className)}>
       <svg className="h-16 w-56 lg:h-24 lg:w-86" aria-hidden="true">

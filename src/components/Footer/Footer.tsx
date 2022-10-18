@@ -1,4 +1,3 @@
-import { FunctionComponent } from "react";
 import { clsx } from "clsx";
 import Navigation from "@components/Navigation";
 
@@ -6,7 +5,7 @@ interface Props {
   className?: string;
 }
 
-const Footer: FunctionComponent<Props> = ({ className = "" }) => {
+const Footer = ({ className = "" }: Props) => {
   return (
     <footer
       className={clsx(className, "flex flex-col items-center text-center")}
