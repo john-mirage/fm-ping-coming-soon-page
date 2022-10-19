@@ -35,6 +35,7 @@ const Illustration = ({ src }: Props) => {
           }
         )}
         src={src}
+        alt="Ping app dashboard illustration"
         draggable="false"
         aria-hidden="true"
       />
