@@ -12,7 +12,7 @@ const Main = ({ className = "" }: Props) => {
     <main
       className={clsx(
         className,
-        "mb-32 flex w-full flex-col items-center text-center"
+        "flex w-full flex-col items-center text-center"
       )}
     >
       <h2 className="mb-16 text-display-md text-gray contrast-more:text-very-dark-blue lg:mb-14 lg:text-display-lg">
