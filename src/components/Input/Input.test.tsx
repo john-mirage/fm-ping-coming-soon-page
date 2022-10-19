@@ -75,24 +75,6 @@ describe("Input component", () => {
     expect(onBlurMock).not.toHaveBeenCalled();
   });
 
-  it("should display the input with red border if there is an error", () => {
-    render(
-      <Input
-        name="user-name"
-        label="User"
-        value=""
-        id="user-id"
-        type="text"
-        placeholder="Enter your username"
-        error="wrong format"
-        onChange={onChangeMock}
-        onBlur={onBlurMock}
-      />
-    );
-    const input = screen.getByRole("textbox");
-    expect(input).toHaveClass("border-light-red");
-  });
-
   it("should call onBlur when input is unfocused", async () => {
     const user = userEvent.setup();
     render(
