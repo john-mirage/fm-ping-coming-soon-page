@@ -30,7 +30,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
         </label>
         <input
           className={clsx(
-            "h-40 w-full rounded-full border px-32 text-body-md text-very-dark-blue placeholder:text-gray focus-visible:outline-2 focus-visible:outline-offset-6 focus-visible:outline-blue lg:h-56 lg:text-body-lg",
+            "h-40 w-full rounded-full border px-32 text-body-md text-very-dark-blue placeholder:text-gray focus-visible:outline-2 focus-visible:outline-offset-6 focus-visible:outline-blue placeholder:contrast-more:text-very-dark-blue lg:h-56 lg:text-body-lg",
             isNotValid ? "border-light-red" : "border-pale-blue"
           )}
           name={name}
