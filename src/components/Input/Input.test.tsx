@@ -25,12 +25,8 @@ describe("Input component", () => {
         onBlur={onBlurMock}
       />
     );
-    const label = screen.getByText(/User/i);
-    const input = screen.getByRole("textbox");
-    const error = screen.queryByRole("alert");
-    expect(label).toBeInTheDocument();
-    expect(label).toHaveAttribute("for", "user-id");
-    expect(input).toBeInTheDocument();
+    const input = screen.getByRole("textbox", { name: /User/i });
+    const alerts = screen.queryAllByRole("alert");
     expect(input).toHaveAttribute("name", "user-name");
     expect(input).toHaveAttribute("value", "");
     expect(input).toHaveAttribute("id", "user-id");
@@ -38,7 +34,7 @@ describe("Input component", () => {
     expect(input).toHaveAttribute("placeholder", "Enter your username");
     expect(input).toHaveAttribute("aria-invalid", "false");
     expect(input).toHaveClass("border-pale-blue");
-    expect(error).not.toBeInTheDocument();
+    expect(alerts).toHaveLength(0);
     expect(onChangeMock).not.toHaveBeenCalled();
     expect(onBlurMock).not.toHaveBeenCalled();
   });
@@ -57,12 +53,8 @@ describe("Input component", () => {
         onBlur={onBlurMock}
       />
     );
-    const label = screen.getByText(/User/i);
-    const input = screen.getByRole("textbox");
-    const error = screen.getByText(/wrong format/i);
-    expect(label).toBeInTheDocument();
-    expect(label).toHaveAttribute("for", "user-id");
-    expect(input).toBeInTheDocument();
+    const input = screen.getByRole("textbox", { name: /User/i });
+    const alert = screen.getByText(/wrong format/i);
     expect(input).toHaveAttribute("name", "user-name");
     expect(input).toHaveAttribute("value", "");
     expect(input).toHaveAttribute("id", "user-id");
@@ -70,7 +62,7 @@ describe("Input component", () => {
     expect(input).toHaveAttribute("placeholder", "Enter your username");
     expect(input).toHaveAttribute("aria-invalid", "true");
     expect(input).toHaveClass("border-light-red");
-    expect(error).toBeInTheDocument();
+    expect(alert).toBeInTheDocument();
     expect(onChangeMock).not.toHaveBeenCalled();
     expect(onBlurMock).not.toHaveBeenCalled();
   });
@@ -90,7 +82,7 @@ describe("Input component", () => {
         onBlur={onBlurMock}
       />
     );
-    const input = screen.getByRole("textbox");
+    const input = screen.getByRole("textbox", { name: /User/i });
     await user.click(input);
     expect(input).toHaveFocus();
     await user.click(document.body);
@@ -114,7 +106,7 @@ describe("Input component", () => {
         onBlur={onBlurMock}
       />
     );
-    const input = screen.getByRole("textbox");
+    const input = screen.getByRole("textbox", { name: /User/i });
     await user.type(input, "test{Enter}");
     expect(onChangeMock).toHaveBeenCalledTimes(4);
     expect(onBlurMock).not.toHaveBeenCalled();

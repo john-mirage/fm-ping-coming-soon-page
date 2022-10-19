@@ -3,10 +3,10 @@ import { clsx } from "clsx";
 
 interface Props {
   children: ReactNode;
-  color?: string;
+  color?: "blue" | "red";
 }
 
-const Message = ({ children, color = "red" }: Props) => {
+const Message = ({ children, color = "blue" }: Props) => {
   return (
     <p
       className={clsx(

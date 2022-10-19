@@ -5,14 +5,15 @@ import Header from "./Header";
 describe("Header component", () => {
   it("should display the header logo", () => {
     const { container } = render(<Header />);
-    const svgUse = container.querySelector("use");
-    expect(svgUse).toBeInTheDocument();
-    expect(svgUse).toHaveAttribute("href", "#logo");
+    expect(container.querySelector('use[href="#logo"]')).toBeTruthy();
   });
 
   it("should display the header title", () => {
     render(<Header />);
-    const h1 = screen.getByText(/Ping Website/i);
+    const h1 = screen.getByRole("heading", {
+      name: /Ping Website/i,
+      level: 1,
+    });
     expect(h1).toBeInTheDocument();
   });
 });

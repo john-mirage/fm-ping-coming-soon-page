@@ -3,17 +3,16 @@ import { render, screen, userEvent } from "@utils/test-utils";
 import Form from "./Form";
 
 describe("Form component", () => {
-  it("should display the form input", () => {
+  it("should display the form input with its label", () => {
     render(<Form />);
     expect(screen.getByLabelText("Email address")).toBeInTheDocument();
-    expect(
-      screen.getByRole("textbox", { name: "Email address" })
-    ).toBeInTheDocument();
   });
 
   it("should display the form submit button", () => {
     render(<Form />);
-    expect(screen.getByText(/Notify Me/i)).toBeInTheDocument();
+    expect(
+      screen.getByRole("button", { name: /Notify Me/i })
+    ).toBeInTheDocument();
   });
 
   it("should display no message if user has not submitted yet", () => {
@@ -24,7 +23,7 @@ describe("Form component", () => {
   it("should display error when submitted with no value", async () => {
     const user = userEvent.setup();
     render(<Form />);
-    await user.click(screen.getByText(/Notify Me/i));
+    await user.click(screen.getByRole("button", { name: /Notify Me/i }));
     expect(screen.queryAllByRole("alert")).toHaveLength(1);
     expect(
       screen.queryByText(/Whoops! It looks like you forgot to add your email/i)
@@ -35,10 +34,10 @@ describe("Form component", () => {
     const user = userEvent.setup();
     render(<Form />);
     await user.type(
-      screen.getByRole("textbox", { name: "Email address" }),
+      screen.getByRole("textbox", { name: /Email address/i }),
       "badEmail"
     );
-    await user.click(screen.getByText(/Notify Me/i));
+    await user.click(screen.getByRole("button", { name: /Notify Me/i }));
     expect(screen.queryAllByRole("alert")).toHaveLength(1);
     expect(
       screen.queryByText(/Please provide a valid email address/i)
@@ -49,10 +48,10 @@ describe("Form component", () => {
     const user = userEvent.setup();
     render(<Form />);
     await user.type(
-      screen.getByRole("textbox", { name: "Email address" }),
+      screen.getByRole("textbox", { name: /Email address/i }),
       "test@test.com"
     );
-    await user.click(screen.getByText(/Notify Me/i));
+    await user.click(screen.getByRole("button", { name: /Notify Me/i }));
     expect(screen.queryAllByRole("alert")).toHaveLength(1);
     expect(
       screen.queryByText(

@@ -12,7 +12,7 @@ const Navigation = () => {
             <a
               className="flex h-32 w-32 items-center justify-center rounded-full text-blue ring-1 ring-pale-blue focus-visible:outline-2 focus-visible:outline-offset-6 focus-visible:outline-blue motion-safe:transition-social hover-device:hover:bg-blue hover-device:hover:text-white hover-device:hover:ring-0"
               href="#"
-              aria-label={`Go to the Ping ${socialMedia} page`}
+              aria-label={`Ping ${socialMedia} page`}
             >
               <svg width="16" height="16" fill="currentColor">
                 <use href={`#icon-${socialMedia}`} />

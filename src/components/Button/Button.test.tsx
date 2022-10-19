@@ -2,11 +2,10 @@ import { describe, expect, it } from "vitest";
 import { render, screen } from "@utils/test-utils";
 import Button from "./Button";
 
-describe("Footer component", () => {
-  it("should display the footer copyright", () => {
+describe("Button component", () => {
+  it("should display the button with the correct type", () => {
     render(<Button type="button">Awesome button</Button>);
-    const button = screen.getByText(/Awesome button/i);
-    expect(button).toBeInTheDocument();
+    const button = screen.getByRole("button", { name: /Awesome button/i });
     expect(button).toHaveAttribute("type", "button");
   });
 });
