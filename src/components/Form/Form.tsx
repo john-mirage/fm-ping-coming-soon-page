@@ -72,7 +72,7 @@ const Form = ({ className = "" }: Props) => {
       className={clsx(className, "print:hidden")}
       onSubmit={handleSubmit(onSubmit, onError)}
     >
-      <div className="lg:flex lg:flex-row lg:items-start">
+      <div className="space-y-16 lg:flex lg:flex-row lg:items-start lg:space-y-0">
         <Controller
           name="email"
           control={control}
