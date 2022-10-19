@@ -12,7 +12,7 @@ const Message = ({ children, color = "blue" }: Props) => {
       className={clsx(
         { "text-light-red": color === "red" },
         { "text-blue": color === "blue" },
-        "mt-6 text-center text-label-sm italic lg:mt-8 lg:pl-32 lg:text-left lg:text-label-md"
+        "mt-8 text-center text-label-sm italic lg:mt-8 lg:pl-32 lg:text-left lg:text-label-md"
       )}
       role="alert"
     >

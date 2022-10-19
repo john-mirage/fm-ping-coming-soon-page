@@ -24,7 +24,7 @@ const Input = forwardRef<HTMLInputElement, Props>(
     }, [error]);
 
     return (
-      <div className="mb-16 lg:mb-0 lg:mr-16 lg:flex-1">
+      <div className="lg:mb-0 lg:mr-16 lg:flex-1">
         <label className="sr-only" htmlFor={id}>
           {label}
         </label>
