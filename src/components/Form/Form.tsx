@@ -39,28 +39,38 @@ const Form = ({ className = "" }: Props) => {
     resolver: yupResolver(schema),
   });
 
+  const hasSuccessMessage = useMemo(() => {
+    return successMessage.length > 0;
+  }, [successMessage]);
+
   const onSubmit = (formData: FormData) => {
     setSuccessMessage(
       `${formData.email} has been successfully added to the notification list.`
     );
   };
 
-  const hasSuccessMessage = useMemo(() => {
-    return successMessage.length > 0;
-  }, [successMessage]);
+  const onError = () => {
+    if (hasSuccessMessage) {
+      setSuccessMessage("");
+    }
+  };
 
   useEffect(() => {
-    if (isDirty && hasSuccessMessage) setSuccessMessage("");
+    if (isDirty && hasSuccessMessage) {
+      setSuccessMessage("");
+    }
   }, [isDirty]);
 
   useEffect(() => {
-    reset();
+    if (isSubmitSuccessful) {
+      reset();
+    }
   }, [isSubmitSuccessful]);
 
   return (
     <form
       className={clsx(className, "print:hidden")}
-      onSubmit={handleSubmit(onSubmit)}
+      onSubmit={handleSubmit(onSubmit, onError)}
     >
       <div className="lg:flex lg:flex-row lg:items-start">
         <Controller
