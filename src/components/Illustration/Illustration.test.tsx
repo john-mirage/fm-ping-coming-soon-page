@@ -1,13 +1,12 @@
 import { describe, expect, it } from "vitest";
 import { render } from "@utils/test-utils";
-import Image from "./Image";
-import dashboardIllustration from "@images/illustration-dashboard.png";
+import Illustration from "./Illustration";
 
-describe("Image component", () => {
+describe("Illustration component", () => {
   it("should display the image", () => {
-    const { container } = render(<Image />);
+    const { container } = render(<Illustration src="pathToImage" />);
     const image = container.querySelector("img");
     expect(image).toBeInTheDocument();
-    expect(image).toHaveAttribute("src", dashboardIllustration);
+    expect(image).toHaveAttribute("src", "pathToImage");
   });
 });

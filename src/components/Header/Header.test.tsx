@@ -14,6 +14,5 @@ describe("Header component", () => {
     render(<Header />);
     const h1 = screen.getByText(/Ping Website/i);
     expect(h1).toBeInTheDocument();
-    expect(h1).toHaveAttribute("aria-hidden", "true");
   });
 });

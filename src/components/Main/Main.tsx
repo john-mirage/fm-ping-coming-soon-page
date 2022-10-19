@@ -16,7 +16,7 @@ const Main = ({ className = "" }: Props) => {
         We are launching{" "}
         <span className="font-700 text-very-dark-blue">soon!</span>
       </h2>
-      <p className="text-body-md text-very-dark-blue print:hidden lg:text-body-xl">
+      <p className="mb-32 text-body-md text-very-dark-blue print:hidden lg:mb-40 lg:text-body-xl">
         Subscribe and get notified
       </p>
       <Form className="mx-auto mb-72 w-full max-w-280 lg:mb-92 lg:max-w-none" />

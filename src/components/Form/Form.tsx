@@ -67,6 +67,7 @@ const Form = ({ className = "" }: Props) => {
         render={({ field: { onChange, onBlur, value, name, ref } }) => (
           <Input
             name={name}
+            label="Email address"
             value={value}
             id="email"
             type="text"
