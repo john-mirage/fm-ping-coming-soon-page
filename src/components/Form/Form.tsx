@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import { useEffect, useMemo, useState } from "react";
 import { clsx } from "clsx";
 import { useForm, Controller } from "react-hook-form";
 import { yupResolver } from "@hookform/resolvers/yup";
@@ -45,8 +45,12 @@ const Form = ({ className = "" }: Props) => {
     );
   };
 
+  const hasSuccessMessage = useMemo(() => {
+    return successMessage.length > 0;
+  }, [successMessage]);
+
   useEffect(() => {
-    if (isDirty && successMessage.length > 0) setSuccessMessage("");
+    if (isDirty && hasSuccessMessage) setSuccessMessage("");
   }, [isDirty]);
 
   useEffect(() => {
@@ -55,34 +59,31 @@ const Form = ({ className = "" }: Props) => {
 
   return (
     <form
-      className={clsx(
-        className,
-        "print:hidden lg:flex lg:flex-row lg:items-start"
-      )}
+      className={clsx(className, "print:hidden")}
       onSubmit={handleSubmit(onSubmit)}
     >
-      <Controller
-        name="email"
-        control={control}
-        render={({ field: { onChange, onBlur, value, name, ref } }) => (
-          <Input
-            name={name}
-            label="Email address"
-            value={value}
-            id="email"
-            type="text"
-            placeholder="Your email address..."
-            error={errors.email?.message ? errors.email.message : ""}
-            onChange={onChange}
-            onBlur={onBlur}
-            ref={ref}
-          />
-        )}
-      />
-      <Button type="submit">Notify Me</Button>
-      {successMessage.length > 0 && (
-        <Message color="blue">{successMessage}</Message>
-      )}
+      <div className="lg:flex lg:flex-row lg:items-start">
+        <Controller
+          name="email"
+          control={control}
+          render={({ field: { onChange, onBlur, value, name, ref } }) => (
+            <Input
+              name={name}
+              label="Email address"
+              value={value}
+              id="email"
+              type="text"
+              placeholder="Your email address..."
+              error={errors.email?.message ? errors.email.message : ""}
+              onChange={onChange}
+              onBlur={onBlur}
+              ref={ref}
+            />
+          )}
+        />
+        <Button type="submit">Notify Me</Button>
+      </div>
+      {hasSuccessMessage && <Message color="blue">{successMessage}</Message>}
     </form>
   );
 };

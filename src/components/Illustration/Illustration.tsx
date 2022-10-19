@@ -29,7 +29,7 @@ const Illustration = ({ src }: Props) => {
       <img
         ref={imageRef}
         className={clsx(
-          "object-cover object-center motion-safe:transition-opacity motion-safe:duration-1000",
+          "object-cover object-center motion-safe:transition-opacity motion-safe:duration-500",
           {
             "opacity-0": !visible,
           }

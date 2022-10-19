@@ -1,4 +1,4 @@
-import { ChangeEvent, FocusEvent, forwardRef } from "react";
+import { ChangeEvent, FocusEvent, forwardRef, useMemo } from "react";
 import { clsx } from "clsx";
 import Message from "@components/Message";
 
@@ -19,7 +19,10 @@ const Input = forwardRef<HTMLInputElement, Props>(
     { name, label, value, id, type, placeholder, error, onChange, onBlur },
     ref
   ) => {
-    const isNotValid = error.length > 0;
+    const isNotValid = useMemo(() => {
+      return error.length > 0;
+    }, [error]);
+
     return (
       <div className="mb-16 lg:mb-0 lg:mr-16 lg:flex-1">
         <label className="sr-only" htmlFor={id}>
